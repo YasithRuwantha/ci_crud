@@ -14,19 +14,21 @@
 			<th>Name</th>
 			<th>Email</th>
 			<th>Contact</th>
+			<th>Address</th> <!>
 			<th>Created At</th>
 			<th>Updated At</th>
 			<th>Actions</th>
    		 </tr>
 			</thead>
 
-        <tbody>
+       <tbody>
     <?php foreach ($customers as $c): ?>
         <tr>
             <td><?= $c->id ?></td>
             <td><?= $c->full_name ?> <?= $c->last_name ?></td>
             <td><?= $c->email ?></td>
             <td><?= $c->contact_number ?></td>
+            <td><?= $c->address ?></td> <!>
             <td><?= date('Y-m-d H:i:s', strtotime($c->created_at)) ?></td>
             <td><?= date('Y-m-d H:i:s', strtotime($c->updated_at)) ?></td>
             <td>
@@ -36,6 +38,7 @@
         </tr>
     <?php endforeach ?>
 </tbody>
+
 
     </table>
 </body>
