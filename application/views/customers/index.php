@@ -9,24 +9,34 @@
     <a href="<?= site_url('customers/create') ?>" class="btn btn-success mb-3">Add New</a>
     <table class="table table-bordered">
         <thead>
-            <tr>
-                <th>ID</th><th>Name</th><th>Email</th><th>Contact</th><th>Actions</th>
-            </tr>
-        </thead>
+    	<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Contact</th>
+			<th>Created At</th>
+			<th>Updated At</th>
+			<th>Actions</th>
+   		 </tr>
+			</thead>
+
         <tbody>
-            <?php foreach ($customers as $c): ?>
-                <tr>
-                    <td><?= $c->id ?></td>
-                    <td><?= $c->full_name ?> <?= $c->last_name ?></td>
-                    <td><?= $c->email ?></td>
-                    <td><?= $c->contact_number ?></td>
-                    <td>
-                        <a href="<?= site_url('customers/edit/'.$c->id) ?>" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="<?= site_url('customers/delete/'.$c->id) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Delete this?')">Delete</a>
-                    </td>
-                </tr>
-            <?php endforeach ?>
-        </tbody>
+    <?php foreach ($customers as $c): ?>
+        <tr>
+            <td><?= $c->id ?></td>
+            <td><?= $c->full_name ?> <?= $c->last_name ?></td>
+            <td><?= $c->email ?></td>
+            <td><?= $c->contact_number ?></td>
+            <td><?= date('Y-m-d H:i:s', strtotime($c->created_at)) ?></td>
+            <td><?= date('Y-m-d H:i:s', strtotime($c->updated_at)) ?></td>
+            <td>
+                <a href="<?= site_url('customers/edit/'.$c->id) ?>" class="btn btn-warning btn-sm">Edit</a>
+                <a href="<?= site_url('customers/delete/'.$c->id) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Delete this?')">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach ?>
+</tbody>
+
     </table>
 </body>
 </html>
